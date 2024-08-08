@@ -11,7 +11,7 @@ Implementation the game "Tetris" in the C programming language.
 
 ## About project
 
-To formalize the logic of this game, the following variant of a finite-state machine can be introduced:
+To formalize the logic of this game, the following variant of a finite-state machine was used:
 
 ![Tetris’s finite-state machine](images/tetris.png)
 
