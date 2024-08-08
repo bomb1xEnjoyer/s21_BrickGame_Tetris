@@ -29,7 +29,7 @@ typedef enum {
   UP = KEY_UP,
   DOWN = KEY_DOWN,
   SPACE = ' ',
-  PAUSE = 'p',
+  PAUSE_KEY = 'p',
   EXIT = 'q',
 } Keys;
 

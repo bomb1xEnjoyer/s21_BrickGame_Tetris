@@ -34,7 +34,6 @@
   GameInfo->speed = GameInfo->level * 2;             \
   GameInfo->move_count = 40;                         \
   GameInfo->score_level = 600;                       \
-  GameInfo->exit_text = "Game over!";                \
   GameInfo->state = START;
 
 #define FREE_MEMORY(GameInfo)         \

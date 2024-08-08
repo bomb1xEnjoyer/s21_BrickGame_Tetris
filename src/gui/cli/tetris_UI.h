@@ -24,8 +24,7 @@
   init_pair(RIGHT_BORDER, COLOR_WHITE, COLOR_BLACK); \
   init_pair(UPPER_BORDER, COLOR_WHITE, COLOR_BLACK); \
   init_pair(DOWN_BORDER, COLOR_WHITE, COLOR_BLACK);  \
-  init_pair(101, COLOR_BLACK, 196);                  \
-  init_pair(102, COLOR_BLACK, COLOR_BLACK);          \
-  init_pair(103, COLOR_WHITE, COLOR_BLACK);
+  init_pair(PAUSE, COLOR_BLACK, COLOR_RED);          \
+  init_pair(255, COLOR_WHITE, COLOR_BLACK);
 
 #endif /* TETRIS_UI_H */
