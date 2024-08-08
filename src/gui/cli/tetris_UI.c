@@ -141,5 +141,7 @@ void PrintField(GameInfo *Game) {
                 right);
         attroff(COLOR_PAIR(Game->field.block[i + SHIFT_Y][j + SHIFT_X]));
       }
+      ++k;
     }
+    k = 0;
 }
