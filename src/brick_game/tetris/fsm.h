@@ -39,7 +39,7 @@ typedef enum {
   MOVING = 2,
   SHIFTING = 3,
   ATTACHING = 4,
-  PAUSE = 5,
+  PAUSE = 50,
   GAME_OVER = 6,
 } FiniteStateMachine;
 

@@ -3,10 +3,10 @@
 void ShowGUI(GameInfo *Game) {
   start_color();
   COLOR_INIT;
-  ShowFigure(Game);
-  ShowNextFigure(Game);
-  ShowGame(Game);
-  ShowInfo(Game);
+  PrintFigure(Game);
+  PrintNextFigure(Game);
+  PrintField(Game);
+  PrintInfo(Game);
   if (Game->pause) Pause();
 }
 
@@ -61,15 +61,15 @@ void PrintGameOver(GameInfo *Game) {
 void PrintFigure(GameInfo *Game) {
   int k = 0;
   attron(COLOR_PAIR(Game->figure.type));
-  for (int i = 0; i < Game->figure.size; ++i) {
-    for (int j = 0; j < Game->figure.size; ++j) {
+  for (int i = 0; i < Game->figure.size; i++) {
+    for (int j = 0; j < Game->figure.size; j++) {
       if (Game->figure.block[i][j] == Game->figure.type) {
         mvaddch(i + Game->figure.y - SHIFT_Y + 1,
                 j + Game->figure.x * 2 + k - SHIFT_X, '[');
         mvaddch(i + Game->figure.y - SHIFT_Y + 1,
                 j + Game->figure.x * 2 + k + 1 - SHIFT_X, ']');
       }
-      ++k;
+      k++;
     }
     k = 0;
   }
@@ -99,19 +99,19 @@ void PrintField(GameInfo *Game) {
   int k = 0;
   chtype left, right;
 
-  for (int i = 0; i < WINDOW_HEIGHT; ++i)
+  for (int i = 0; i < WINDOW_HEIGHT; ++i) {
     for (int j = 0; j < WINDOW_WIDTH; ++j) {
-      if (Game->field.block[i + SHIFT_X][j + SHIFT_Y] == 0) {
+      if (Game->field.block[i + SHIFT_Y][j + SHIFT_X] == 0) {
         left = ' ';
         right = ' ';
-      } else if (Game->field.block[i + SHIFT_X][j + SHIFT_Y] == LEFT_BORDER) {
+      } else if (Game->field.block[i + SHIFT_Y][j + SHIFT_X] == LEFT_BORDER) {
         left = ' ';
         right = ACS_VLINE;
-      } else if (Game->field.block[i + SHIFT_X][j + SHIFT_Y] == RIGHT_BORDER) {
+      } else if (Game->field.block[i + SHIFT_Y][j + SHIFT_X] == RIGHT_BORDER) {
         left = ACS_VLINE;
         right = ' ';
-      } else if (Game->field.block[i + SHIFT_X][j + SHIFT_Y] == UPPER_BORDER ||
-                 Game->field.block[i + SHIFT_X][j + SHIFT_Y] == DOWN_BORDER) {
+      } else if (Game->field.block[i + SHIFT_Y][j + SHIFT_X] == UPPER_BORDER ||
+                 Game->field.block[i + SHIFT_Y][j + SHIFT_X] == DOWN_BORDER) {
         left = ACS_HLINE;
         right = ACS_HLINE;
       } else {
@@ -141,7 +141,8 @@ void PrintField(GameInfo *Game) {
                 right);
         attroff(COLOR_PAIR(Game->field.block[i + SHIFT_Y][j + SHIFT_X]));
       }
-      ++k;
+      k++;
     }
     k = 0;
+  }
 }

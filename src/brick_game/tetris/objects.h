@@ -24,6 +24,7 @@ typedef struct {
   int right_collision;
   int upper_collision;
   int down_collision;
+  int inner_collision;
   int spawn_collision;
   int rotation_collision;
   int x_collision;

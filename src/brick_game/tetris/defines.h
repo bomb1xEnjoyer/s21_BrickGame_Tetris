@@ -17,7 +17,7 @@
   initscr();            \
   keypad(stdscr, true); \
   noecho();             \
-  curs_set(0);          \
+  curs_set(0);
 
 #define rand_figure rand() % 7 + 1
 
@@ -36,14 +36,14 @@
   GameInfo->score_level = 600;                       \
   GameInfo->state = START;
 
-#define FREE_MEMORY(GameInfo)         \
-  FreeField(&GameInfo->field);        \
-  FreeFigure(&GameInfo->figure);      \
+#define FREE_MEMORY(GameInfo)    \
+  FreeField(&GameInfo->field);   \
+  FreeFigure(&GameInfo->figure); \
   FreeFigure(&GameInfo->next_figure);
 
 #define ROTATION_START(GameInfo) Rotate(GameInfo);
 
-#define SPAWN(GameInfo)                                          \
+#define SPAWNER(GameInfo)                                        \
   GameInfo->figure = GameInfo->next_figure;                      \
   GameInfo->figure.x = START_POS_X + 8 - GameInfo->figure.large; \
   GameInfo->figure.y = START_POS_Y;                              \
@@ -57,6 +57,7 @@
   collision.right_collision = 0;    \
   collision.upper_collision = 0;    \
   collision.down_collision = 0;     \
+  collision.inner_collision = 0;    \
   collision.spawn_collision = 0;    \
   collision.rotation_collision = 0; \
   collision.x_collision = 0;        \
