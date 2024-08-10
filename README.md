@@ -4,6 +4,7 @@ Implementation the game "Tetris" in the C programming language.
 ## Necessary software for development:
 - GCC compiler
 - make Utility
+- doxygen
 
 ## Commands:
 - Run `make` - to build project, run tests and create documentation
