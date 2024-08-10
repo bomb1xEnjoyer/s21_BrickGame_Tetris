@@ -17,18 +17,11 @@ void StartScreen() {
   mvprintw(8, 2, "+-+-+-+-+-+ +-+-+-+ +-+-+-+ +-+-+ +-+-+-+-+-+-+");
   mvprintw(9, 2, "|P|r|e|s|s| |a|n|y| |k|e|y| |t|o| |s|t|a|r|t|!|");
   mvprintw(10, 2, "+-+-+-+-+-+ +-+-+-+ +-+-+-+ +-+-+ +-+-+-+-+-+-+");
-  mvprintw(11, 13, "________________________");
-  mvaddch(12, 18, ACS_LARROW);
-  mvprintw(12, 19, " - move left");
-  mvaddch(13, 18, ACS_RARROW);
-  mvprintw(13, 19, " - move right");
-  mvaddch(14, 18, ACS_UARROW);
-  mvprintw(14, 19, " - rotate");
-  mvaddch(15, 18, ACS_DARROW);
-  mvprintw(15, 19, " - move down");
-  mvprintw(16, 14, "SPACE - place figure");
-  mvprintw(17, 18, "P - pause");
-  mvprintw(18, 18, "Q - quit");
+  mvprintw(13, 14, "Rotate figures with up arrow");
+  mvprintw(14, 14, "Move figures with other arrows");
+  mvprintw(15, 14, "Drop down figures with SPACE");
+  mvprintw(16, 14, "Set pause with P");
+  mvprintw(17, 14, "Close game with Q");
 }
 
 void Pause() {
