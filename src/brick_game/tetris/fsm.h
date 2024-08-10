@@ -1,3 +1,7 @@
+/**
+ * @file fsm.h
+ * @brief Header file with enums
+ */
 #ifndef FSM_H
 #define FSM_H
 

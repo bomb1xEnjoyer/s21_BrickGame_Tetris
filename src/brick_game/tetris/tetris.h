@@ -1,3 +1,7 @@
+/**
+ * @file tetris.h
+ * @brief Main header file
+ */
 #ifndef TETRIS_H
 #define TETRIS_H
 

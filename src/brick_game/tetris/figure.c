@@ -4,6 +4,9 @@
 #include "objects.h"
 #include "tetris.h"
 
+/**
+ * @brief Function for allocating memory for the figure
+ */
 void CreateFigure(Figure *figure, BlockType type) {
   if (type == I) {
     figure->size = 8;
@@ -43,6 +46,9 @@ void CreateFigure(Figure *figure, BlockType type) {
   TakeCollide(figure);
 }
 
+/**
+ * @brief Function for taking collisions
+ */
 void TakeCollide(Figure *figure) {
   for (int i = figure->size - 1; i >= 0; --i)
     for (int j = 0; j < figure->size; ++j)
@@ -58,6 +64,9 @@ void TakeCollide(Figure *figure) {
       }
 }
 
+/**
+ * @brief Clear memory with figure data
+ */
 void FreeFigure(Figure *figure) {
   for (int i = 0; i < figure->size; ++i) free(figure->block[i]);
   free(figure->block);

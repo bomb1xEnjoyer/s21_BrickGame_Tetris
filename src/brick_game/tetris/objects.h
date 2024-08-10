@@ -1,3 +1,7 @@
+/**
+ * @file objects.h
+ * @brief Objects header file
+ */
 #ifndef OBJECTS_H
 #define OBJECTS_H
 

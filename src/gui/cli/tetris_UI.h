@@ -1,3 +1,7 @@
+/**
+ * @file tetris_UI.h
+ * @brief User interface hedear file
+ */
 #ifndef TETRIS_UI_H
 #define TETRIS_UI_H
 

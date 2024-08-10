@@ -4,6 +4,9 @@
 #include "objects.h"
 #include "tetris.h"
 
+/**
+ * @brief Function for allocating memory for the field and setting the borders
+ */
 void CreateField(Field *field) {
   field->height = FIELD_HEIGHT;
   field->width = FIELD_WIDTH;
@@ -25,11 +28,17 @@ void CreateField(Field *field) {
     }
 }
 
+/**
+ * @brief Clear memory with field data
+ */
 void FreeField(Field *field) {
   for (int i = 0; i < field->height; ++i) free(field->block[i]);
   free(field->block);
 }
 
+/**
+ * @brief Function for checking filled lines
+ */
 int CheckFullLines(GameInfo *Game) {
   int full_lines = 0;
   for (int i = 0; i <= 20; ++i) {
@@ -46,6 +55,9 @@ int CheckFullLines(GameInfo *Game) {
   return full_lines;
 }
 
+/**
+ * @brief Function for clearing filled lines
+ */
 void ClearLine(GameInfo *Game, int line_number) {
   for (int i = line_number; i > 0; --i)
     for (int j = 0; j < FIELD_WIDTH - 6; ++j)

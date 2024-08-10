@@ -1,5 +1,8 @@
 #include "tetris_UI.h"
 
+/**
+ * @brief Display graphical user interface
+ */
 void ShowGUI(GameInfo *Game) {
   start_color();
   COLOR_INIT;
@@ -10,6 +13,9 @@ void ShowGUI(GameInfo *Game) {
   if (Game->pause) Pause();
 }
 
+/**
+ * @brief Display start screen
+ */
 void StartScreen() {
   mvprintw(3, 7, "+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+-+-+-+");
   mvprintw(4, 7, "|T|E|T|R|I|S| |b|y| |d|i|c|k|o|n|n|o|");
@@ -24,6 +30,9 @@ void StartScreen() {
   mvprintw(17, 14, "Close game with Q");
 }
 
+/**
+ * @brief Display pause
+ */
 void Pause() {
   attron(COLOR_PAIR(PAUSE));
   mvprintw(9, 10, "         ");
@@ -32,6 +41,9 @@ void Pause() {
   attroff(COLOR_PAIR(PAUSE));
 }
 
+/**
+ * @brief Display info panel
+ */
 void PrintInfo(GameInfo *Game) {
   attron(COLOR_PAIR(255));
   mvprintw(2, 30, "Highscore: %d", Game->highscore);
@@ -40,6 +52,9 @@ void PrintInfo(GameInfo *Game) {
   attroff(COLOR_PAIR(255));
 }
 
+/**
+ * @brief Display game over screen
+ */
 void PrintGameOver(GameInfo *Game) {
   attron(COLOR_PAIR(255));
   mvprintw(8, 2, "+-+-+-+-+ +-+-+-+-+-+");
@@ -51,6 +66,9 @@ void PrintGameOver(GameInfo *Game) {
   attroff(COLOR_PAIR(255));
 }
 
+/**
+ * @brief Display figure on field
+ */
 void PrintFigure(GameInfo *Game) {
   int k = 0;
   attron(COLOR_PAIR(Game->figure.type));
@@ -69,6 +87,9 @@ void PrintFigure(GameInfo *Game) {
   attroff(COLOR_PAIR(Game->figure.type));
 }
 
+/**
+ * @brief Display next figure in the info pannel
+ */
 void PrintNextFigure(GameInfo *Game) {
   int k = 0;
   int shift = (Game->next_figure.size - Game->next_figure.large) / 2;
@@ -88,6 +109,9 @@ void PrintNextFigure(GameInfo *Game) {
   attroff(COLOR_PAIR(Game->next_figure.type));
 }
 
+/**
+ * @brief Display field
+ */
 void PrintField(GameInfo *Game) {
   int k = 0;
   chtype left, right;

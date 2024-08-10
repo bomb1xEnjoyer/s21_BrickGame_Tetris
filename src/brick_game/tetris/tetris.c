@@ -5,6 +5,9 @@
 #include "fsm.h"
 #include "objects.h"
 
+/**
+ * @brief Game loop function
+ */
 void GameLoop(GameInfo *Game) {
   GAME_INIT(Game);
   Game->file = fopen("highscore.txt", "r+");
@@ -21,6 +24,9 @@ void GameLoop(GameInfo *Game) {
   FREE_MEMORY(Game);
 }
 
+/**
+ * @brief Ending game function
+ */
 void GameOver(GameInfo *Game) {
   cbreak();
   clear();
@@ -31,6 +37,9 @@ void GameOver(GameInfo *Game) {
   getch();
 }
 
+/**
+ * @brief Function to handle finite states
+ */
 void StateMachine(GameInfo *Game) {
   switch (Game->state) {
     case START:

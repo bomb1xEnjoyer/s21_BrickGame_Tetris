@@ -2,9 +2,8 @@
 #include "gui/cli/tetris_UI.h"
 
 /**
- * @brief Main func
-*/
-
+ * @brief Main function
+ */
 int main() {
   INITSCR;
   GameInfo Game;

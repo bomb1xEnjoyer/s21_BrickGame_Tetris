@@ -1,3 +1,7 @@
+/**
+ * @file defines.h
+ * @brief Hedear file with defines
+ */
 #ifndef DEFINES_H
 #define DEFINES_H
 

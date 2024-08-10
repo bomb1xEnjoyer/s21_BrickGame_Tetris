@@ -26,7 +26,7 @@ TEST_FILES_H = tests/*.h
 
 CLANG = clang-format -style=Google
 
-all: $(EXECUTABLE) install test gcov_report
+all: $(EXECUTABLE) install test gcov_report dvi
 
 install: uninstall $(EXECUTABLE) $(MAIN)
 	$(CC) -c $(MAIN) -o $(MAIN_O) $(CFLAGS) $(LIBSFLAGS) 

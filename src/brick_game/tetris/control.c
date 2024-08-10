@@ -4,33 +4,10 @@
 #include "objects.h"
 #include "tetris.h"
 
+/**
+ * @brief Figure moving function
+ */
 void MoveFigure(GameInfo *Game, Keys key) {
-  // if (key == EXIT) Game->state = GAME_OVER;
-  // if (!Game->pause) {
-  //   if (key == UP) {
-  //     RotateFigure(Game);
-  //     Game->move_count--;
-  //   }
-  //   if (key == DOWN) {
-  //     MoveDown(Game);
-  //     Game->move_count -= 2;
-  //   }
-  //   if (key == LEFT) {
-  //     MoveLeft(Game);
-  //     Game->move_count--;
-  //   }
-  //   if (key == RIGHT) {
-  //     MoveRight(Game);
-  //     Game->move_count--;
-  //   }
-  //   if (key == SPACE) {
-  //     DropDown(Game);
-  //     Game->move_count--;
-  //   }
-  //   if (key == PAUSE_KEY)
-  //     Game->pause = true;
-  // } else if (key == PAUSE_KEY && Game->pause)
-  //   Game->pause = false;
   switch (key) {
     case UP:
       if (!Game->pause) {
@@ -76,6 +53,9 @@ void MoveFigure(GameInfo *Game, Keys key) {
   }
 }
 
+/**
+ * @brief Figure rotating function
+ */
 void RotateFigure(GameInfo *Game) {
   Collision coll = IsColliding(Game);
   if (coll.rotation_collision > 2) {
@@ -112,11 +92,17 @@ void RotateFigure(GameInfo *Game) {
   }
 }
 
+/**
+ * @brief Drop down figure function
+ */
 void DropDown(GameInfo *Game) {
   int can_move_down = 1;
   while (can_move_down) can_move_down = MoveDown(Game);
 }
 
+/**
+ * @brief Simple rotate
+ */
 void Rotate(GameInfo *Game) {
   Figure rotated_figure;
   CreateFigure(&rotated_figure, Game->next_figure.type);
@@ -135,6 +121,9 @@ void Rotate(GameInfo *Game) {
   FreeFigure(&rotated_figure);
 }
 
+/**
+ * @brief Moving figure to the down function
+ */
 int MoveDown(GameInfo *Game) {
   int move = 1;
   Collision coll = IsColliding(Game);
@@ -147,6 +136,9 @@ int MoveDown(GameInfo *Game) {
   return move;
 }
 
+/**
+ * @brief Moving figure to the left function
+ */
 void MoveLeft(GameInfo *Game) {
   Collision coll = IsColliding(Game);
   if (coll.left_collision == 0) {
@@ -156,6 +148,9 @@ void MoveLeft(GameInfo *Game) {
   }
 }
 
+/**
+ * @brief Moving figure to the right function
+ */
 void MoveRight(GameInfo *Game) {
   Collision coll = IsColliding(Game);
   if (coll.right_collision == 0) {
@@ -165,6 +160,9 @@ void MoveRight(GameInfo *Game) {
   }
 }
 
+/**
+ * @brief Find collisions function
+ */
 Collision IsColliding(GameInfo *Game) {
   Collision result;
   COLLISION_INIT(result);
@@ -222,6 +220,9 @@ Collision IsColliding(GameInfo *Game) {
   return result;
 }
 
+/**
+ * @brief Attaching figure function
+ */
 void AttachingFigure(GameInfo *Game) {
   Collision coll = IsColliding(Game);
   int filled_lines = 0;
@@ -242,6 +243,9 @@ void AttachingFigure(GameInfo *Game) {
   }
 }
 
+/**
+ * @brief Level counting function
+ */
 void LevelCounter(GameInfo *Game, int filled_lines) {
   Game->score += 100 * (pow(2, filled_lines) - 1);
   if (Game->highscore <= Game->score) Game->highscore = Game->score;
@@ -252,6 +256,9 @@ void LevelCounter(GameInfo *Game, int filled_lines) {
   Game->speed = Game->level * 2;
 }
 
+/**
+ * @brief Moving figure to the down without pressing key function
+ */
 void MoveDowmCycle(GameInfo *Game) {
   Game->move_count -= Game->speed;
   if (Game->move_count <= 0) {
