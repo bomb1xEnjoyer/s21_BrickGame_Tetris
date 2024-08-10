@@ -6,7 +6,7 @@ Implementation the game "Tetris" in the C programming language.
 - make Utility
 
 ## Commands:
-- Run `make` - to build project and run tests
+- Run `make` - to build project, run tests and create documentation
 - Run `./tetris` - to open game in terminal
 
 ## About project
