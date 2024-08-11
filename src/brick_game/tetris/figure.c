@@ -68,6 +68,7 @@ void TakeCollide(Figure *figure) {
  * @brief Clear memory with figure data
  */
 void FreeFigure(Figure *figure) {
-  for (int i = 0; i < figure->size; ++i) free(figure->block[i]);
+  for (int i = 0; i < figure->size; ++i)
+    free(figure->block[i]);
   free(figure->block);
 }

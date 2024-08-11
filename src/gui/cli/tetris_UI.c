@@ -10,7 +10,8 @@ void ShowGUI(GameInfo *Game) {
   PrintNextFigure(Game);
   PrintField(Game);
   PrintInfo(Game);
-  if (Game->pause) Pause();
+  if (Game->pause)
+    Pause();
 }
 
 /**

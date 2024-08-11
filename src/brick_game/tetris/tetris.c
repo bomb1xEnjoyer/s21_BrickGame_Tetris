@@ -42,36 +42,38 @@ void GameOver(GameInfo *Game) {
  */
 void StateMachine(GameInfo *Game) {
   switch (Game->state) {
-    case START:
-      StartScreen();
-      getch();
-      Game->state = SPAWN;
-      halfdelay(1);
-      break;
-    case SPAWN:
-      SPAWNER(Game);
+  case START:
+    StartScreen();
+    getch();
+    Game->state = SPAWN;
+    halfdelay(1);
+    break;
+  case SPAWN:
+    SPAWNER(Game);
+    Game->state = MOVING;
+    while (IsColliding(Game).upper_collision > 0 && MoveDown(Game))
+      ;
+    break;
+  case MOVING:
+    ShowGUI(Game);
+    MoveDowmCycle(Game);
+    Keys key = getch();
+    MoveFigure(Game, key);
+    break;
+  case SHIFTING:
+    int can_shift = 1;
+    if (!Game->pause)
+      can_shift = MoveDown(Game);
+    if (can_shift)
       Game->state = MOVING;
-      while (IsColliding(Game).upper_collision > 0 && MoveDown(Game))
-        ;
-      break;
-    case MOVING:
-      ShowGUI(Game);
-      MoveDowmCycle(Game);
-      Keys key = getch();
-      MoveFigure(Game, key);
-      break;
-    case SHIFTING:
-      int can_shift = 1;
-      if (!Game->pause) can_shift = MoveDown(Game);
-      if (can_shift) Game->state = MOVING;
-      break;
-    case ATTACHING:
-      AttachingFigure(Game);
-      break;
-    case GAME_OVER:
-      Game->play = false;
-      break;
-    default:
-      break;
+    break;
+  case ATTACHING:
+    AttachingFigure(Game);
+    break;
+  case GAME_OVER:
+    Game->play = false;
+    break;
+  default:
+    break;
   }
 }

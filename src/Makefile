@@ -26,7 +26,7 @@ TEST_FILES_H = tests/*.h
 
 CLANG = clang-format -style=Google
 
-all: $(EXECUTABLE) install test gcov_report dvi
+all: $(EXECUTABLE) install test gcov_report doxy
 
 install: uninstall $(EXECUTABLE) $(MAIN)
 	$(CC) -c $(MAIN) -o $(MAIN_O) $(CFLAGS) $(LIBSFLAGS) 
@@ -46,15 +46,8 @@ $(EXECUTABLE): $(OBJECTS)
 uninstall: 
 	rm -rf ~/$(EXEC) $(EXEC)
 
-dvi: clean_dvi
+doxy: clean_doxy
 	doxygen
-
-dvi_short:
-	clear
-	cat README.dvi
-
-clean_dvi:
-	rm -rf ./doxygen/
 
 dist:
 	mkdir dist

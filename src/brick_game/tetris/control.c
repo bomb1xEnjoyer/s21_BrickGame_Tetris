@@ -9,47 +9,47 @@
  */
 void MoveFigure(GameInfo *Game, Keys key) {
   switch (key) {
-    case UP:
-      if (!Game->pause) {
-        RotateFigure(Game);
-        Game->move_count--;
-      }
-      break;
-    case DOWN:
-      if (!Game->pause) {
-        MoveDown(Game);
-        Game->move_count -= 2;
-      }
-      break;
-    case LEFT:
-      if (!Game->pause) {
-        MoveLeft(Game);
-        Game->move_count--;
-      }
-      break;
-    case RIGHT:
-      if (!Game->pause) {
-        MoveRight(Game);
-        Game->move_count--;
-      }
-      break;
-    case SPACE:
-      if (!Game->pause) {
-        DropDown(Game);
-        Game->move_count--;
-      }
-      break;
-    case PAUSE_KEY:
-      if (!Game->pause)
-        Game->pause = true;
-      else
-        Game->pause = false;
-      break;
-    case EXIT:
-      Game->state = GAME_OVER;
-      break;
-    default:
-      break;
+  case UP:
+    if (!Game->pause) {
+      RotateFigure(Game);
+      Game->move_count--;
+    }
+    break;
+  case DOWN:
+    if (!Game->pause) {
+      MoveDown(Game);
+      Game->move_count -= 2;
+    }
+    break;
+  case LEFT:
+    if (!Game->pause) {
+      MoveLeft(Game);
+      Game->move_count--;
+    }
+    break;
+  case RIGHT:
+    if (!Game->pause) {
+      MoveRight(Game);
+      Game->move_count--;
+    }
+    break;
+  case SPACE:
+    if (!Game->pause) {
+      DropDown(Game);
+      Game->move_count--;
+    }
+    break;
+  case PAUSE_KEY:
+    if (!Game->pause)
+      Game->pause = true;
+    else
+      Game->pause = false;
+    break;
+  case EXIT:
+    Game->state = GAME_OVER;
+    break;
+  default:
+    break;
   }
 }
 
@@ -97,7 +97,8 @@ void RotateFigure(GameInfo *Game) {
  */
 void DropDown(GameInfo *Game) {
   int can_move_down = 1;
-  while (can_move_down) can_move_down = MoveDown(Game);
+  while (can_move_down)
+    can_move_down = MoveDown(Game);
 }
 
 /**
@@ -144,7 +145,8 @@ void MoveLeft(GameInfo *Game) {
   if (coll.left_collision == 0) {
     Game->figure.x -= 1;
     coll = IsColliding(Game);
-    if (coll.inner_collision) Game->figure.x += 1;
+    if (coll.inner_collision)
+      Game->figure.x += 1;
   }
 }
 
@@ -156,7 +158,8 @@ void MoveRight(GameInfo *Game) {
   if (coll.right_collision == 0) {
     Game->figure.x += 1;
     coll = IsColliding(Game);
-    if (coll.inner_collision) Game->figure.x += 1;
+    if (coll.inner_collision)
+      Game->figure.x += 1;
   }
 }
 
@@ -248,7 +251,8 @@ void AttachingFigure(GameInfo *Game) {
  */
 void LevelCounter(GameInfo *Game, int filled_lines) {
   Game->score += 100 * (pow(2, filled_lines) - 1);
-  if (Game->highscore <= Game->score) Game->highscore = Game->score;
+  if (Game->highscore <= Game->score)
+    Game->highscore = Game->score;
   if (Game->level < 10)
     Game->level = Game->score / Game->score_level + 1;
   else

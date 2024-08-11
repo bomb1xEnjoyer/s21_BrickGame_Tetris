@@ -32,7 +32,8 @@ void CreateField(Field *field) {
  * @brief Clear memory with field data
  */
 void FreeField(Field *field) {
-  for (int i = 0; i < field->height; ++i) free(field->block[i]);
+  for (int i = 0; i < field->height; ++i)
+    free(field->block[i]);
   free(field->block);
 }
 
@@ -44,7 +45,8 @@ int CheckFullLines(GameInfo *Game) {
   for (int i = 0; i <= 20; ++i) {
     int columns = 0;
     for (int j = 0; j <= 10; ++j) {
-      if (Game->field.block[i + 5][j + 3] == 0) break;
+      if (Game->field.block[i + 5][j + 3] == 0)
+        break;
       ++columns;
     }
     if (columns >= 10) {
