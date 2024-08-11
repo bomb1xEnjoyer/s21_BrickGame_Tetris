@@ -18,9 +18,9 @@ void ShowGUI(GameInfo *Game) {
  * @brief Display start screen
  */
 void StartScreen() {
-  mvprintw(3, 7, "+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+-+-+-+");
-  mvprintw(4, 7, "|T|E|T|R|I|S| |b|y| |d|i|c|k|o|n|n|o|");
-  mvprintw(5, 7, "+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+-+-+-+");
+  mvprintw(3, 13, "+-+-+-+-+-+-+ +-+-+-+-+");
+  mvprintw(4, 13, "|T|E|T|R|I|S| |G|A|M|E|");
+  mvprintw(5, 13, "+-+-+-+-+-+-+ +-+-+-+-+");
   mvprintw(8, 2, "+-+-+-+-+-+ +-+-+-+ +-+-+-+ +-+-+ +-+-+-+-+-+-+");
   mvprintw(9, 2, "|P|r|e|s|s| |a|n|y| |k|e|y| |t|o| |s|t|a|r|t|!|");
   mvprintw(10, 2, "+-+-+-+-+-+ +-+-+-+ +-+-+-+ +-+-+ +-+-+-+-+-+-+");
